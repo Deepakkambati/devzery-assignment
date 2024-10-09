@@ -1,0 +1,189 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
+    <script type="text/javascript">
+        window.tailwind.config = {
+            darkMode: ['class'],
+            theme: {
+                extend: {
+                    colors: {
+                        border: 'hsl(var(--border))',
+                        input: 'hsl(var(--input))',
+                        ring: 'hsl(var(--ring))',
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: {
+                            DEFAULT: 'hsl(var(--primary))',
+                            foreground: 'hsl(var(--primary-foreground))'
+                        },
+                        secondary: {
+                            DEFAULT: 'hsl(var(--secondary))',
+                            foreground: 'hsl(var(--secondary-foreground))'
+                        },
+                        destructive: {
+                            DEFAULT: 'hsl(var(--destructive))',
+                            foreground: 'hsl(var(--destructive-foreground))'
+                        },
+                        muted: {
+                            DEFAULT: 'hsl(var(--muted))',
+                            foreground: 'hsl(var(--muted-foreground))'
+                        },
+                        accent: {
+                            DEFAULT: 'hsl(var(--accent))',
+                            foreground: 'hsl(var(--accent-foreground))'
+                        },
+                        popover: {
+                            DEFAULT: 'hsl(var(--popover))',
+                            foreground: 'hsl(var(--popover-foreground))'
+                        },
+                        card: {
+                            DEFAULT: 'hsl(var(--card))',
+                            foreground: 'hsl(var(--card-foreground))'
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+				:root {
+					--background: 0 0% 100%;
+--foreground: 240 10% 3.9%;
+--card: 0 0% 100%;
+--card-foreground: 240 10% 3.9%;
+--popover: 0 0% 100%;
+--popover-foreground: 240 10% 3.9%;
+--primary: 240 5.9% 10%;
+--primary-foreground: 0 0% 98%;
+--secondary: 240 4.8% 95.9%;
+--secondary-foreground: 240 5.9% 10%;
+--muted: 240 4.8% 95.9%;
+--muted-foreground: 240 3.8% 46.1%;
+--accent: 240 4.8% 95.9%;
+--accent-foreground: 240 5.9% 10%;
+--destructive: 0 84.2% 60.2%;
+--destructive-foreground: 0 0% 98%;
+--border: 240 5.9% 90%;
+--input: 240 5.9% 90%;
+--ring: 240 5.9% 10%;
+--radius: 0.5rem;
+				}
+				.dark {
+					--background: 240 10% 3.9%;
+--foreground: 0 0% 98%;
+--card: 240 10% 3.9%;
+--card-foreground: 0 0% 98%;
+--popover: 240 10% 3.9%;
+--popover-foreground: 0 0% 98%;
+--primary: 0 0% 98%;
+--primary-foreground: 240 5.9% 10%;
+--secondary: 240 3.7% 15.9%;
+--secondary-foreground: 0 0% 98%;
+--muted: 240 3.7% 15.9%;
+--muted-foreground: 240 5% 64.9%;
+--accent: 240 3.7% 15.9%;
+--accent-foreground: 0 0% 98%;
+--destructive: 0 62.8% 30.6%;
+--destructive-foreground: 0 0% 98%;
+--border: 240 3.7% 15.9%;
+--input: 240 3.7% 15.9%;
+--ring: 240 4.9% 83.9%;
+				}
+			}
+		</style>
+</head>
+
+<body>
+    <div class="flex h-screen bg-background">
+        <nav class="w-64 bg-card p-4">
+            <h1 class="text-xl font-bold text-primary">Dezvery</h1>
+            <ul class="mt-6">
+                <li class="mb-4">
+                    <a href="#" class="text-primary hover:text-primary-foreground">API Overview</a>
+                </li>
+                <li class="mb-4">
+                    <a href="#" class="text-primary hover:text-primary-foreground">Bug Tracker</a>
+                </li>
+                <li class="mb-4">
+                    <a href="#" class="text-primary hover:text-primary-foreground">Integration</a>
+                </li>
+                <li class="mb-4">
+                    <a href="#" class="text-primary hover:text-primary-foreground">Settings</a>
+                </li>
+            </ul>
+            <div class="mt-auto">
+                <a href="#" class="text-destructive">Logout</a>
+            </div>
+        </nav>
+        <main class="flex-1 p-6">
+            <h2 class="text-2xl font-semibold text-primary">New Test Case</h2>
+            <form class="mt-4 bg-card p-4 rounded-lg shadow">
+                <div class="mb-4">
+                    <label class="block text-primary" for="testCaseTitle">Test Case Title</label>
+                    <input type="text" id="testCaseTitle" class="w-full p-2 border border-border rounded" placeholder="Describe what this test case is about..." />
+                </div>
+                <div class="mb-4">
+                    <label class="block text-primary" for="priority">Priority</label>
+                    <select id="priority" class="w-full p-2 border border-border rounded">
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-primary">Add API sequence</label>
+                    <select class="w-full p-2 border border-border rounded mb-2">
+                        <option>Create Coupon API</option>
+                        <option>Add Product To Cart API</option>
+                    </select>
+                    <button type="button" class="bg-primary text-primary p-2 rounded plus">+</button>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-primary">Request</label>
+                    <textarea class="w-full p-2 border border-border rounded" rows="5" placeholder='{"couponType": "stackable", "collectionCondition": true}'></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-primary">Expected Response</label>
+                    <textarea class="w-full p-2 border border-border rounded" rows="5" placeholder='{"couponType": "stackable", "discountAmount": 100}'></textarea>
+                </div>
+                <button type="submit" class="bg-secondary text-secondary p-2 rounded">Add</button>
+                <button type="button" class="bg-muted text-muted p-2 rounded ml-2">Cancel</button>
+            </form>
+            <div class="mt-6">
+                <h3 class="text-xl font-semibold text-primary">Headers</h3>
+                <div class="bg-card p-4 rounded-lg mt-2">
+                    <div class="flex justify-between">
+                        <span class="text-primary">Content-Type</span>
+                        <span class="text-primary">application/json</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-primary">Accept</span>
+                        <span class="text-primary">application/json</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-primary">Authorization</span>
+                        <span class="text-primary">Bearer token</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-primary">Accept-Encoding</span>
+                        <span class="text-primary">gzip</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-primary">Cache-Control</span>
+                        <span class="text-primary">no-cache</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+
+</body>
+
+</html>
